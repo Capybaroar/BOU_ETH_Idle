@@ -885,8 +885,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnnemyValue
   Value: 5
-  Life: 4
+  Life: 40
   poGenerator: {fileID: 672600330}
+  SbireIMG: {fileID: 685016433}
+  CanonIMG: {fileID: 0}
+  SbireSprite: {fileID: 0}
+  CanonSprite: {fileID: 0}
 --- !u!1 &1160578705
 GameObject:
   m_ObjectHideFlags: 0
