@@ -3,46 +3,45 @@ using UnityEngine.UI;
 
 public class EnnemyValue : MonoBehaviour
 {
-    public int Value;
-    public int Life;
+    public float Life;
     public PoGenerator poGenerator;
-    private int StartLife;
-    public Image SbireIMG;
-    public Image CanonIMG;
-    private int valAleatoir;
+    public Image ennemyIMG;
     public Sprite SbireSprite;
     public Sprite CanonSprite;
-    public void Dammage()
+    public AttackForce attack;
+
+    public float StartLife;
+    public float valAleatoir;
+    public float Value;
+
+    public void Kill()
     {
-        StartLife=Life;
-        Life -= 1;
+        StartLife =Life;
+        Life -= attack.power;
+        print(Value);
         if(Life<=0)
         {
             poGenerator.goldAmount += Value;
-            valAleatoir = Random.Range(0, 1);
+            valAleatoir = Random.Range(0, 2);
             if (valAleatoir == 0)
             {
-                SbireIMG.sprite = SbireSprite;
+                ennemyIMG.sprite = SbireSprite;
+                Life = 50;
+                Value = 5;
             }
             else
             {
-                CanonIMG.sprite = CanonSprite;
+                ennemyIMG.sprite = CanonSprite;
+                Life = 150;
+                Value = 15;
             }
+  
+
         }
     }
 
 
-    public void LifeManager()
-    {
-        if (valAleatoir == 0)
-        {
-            Life = 50;
-        }
-        else
-        {
-            Life = 150;
-        }
-    }
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
