@@ -22,11 +22,12 @@ public class AttackForce : MonoBehaviour
     {
         if (pogenerator.goldAmount >= powerPrice)
         {
+            pogenerator.goldAmount -= powerPrice;
             power += 1f;
             powerPrice *= 1.2f;
             DommagePrice.text = powerPrice.ToString() + " Po to raise you power";
             DommageAmount.text = power.ToString();
-            pogenerator.goldAmount -= powerPrice;
+            
 
         }
 
