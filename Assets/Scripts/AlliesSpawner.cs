@@ -1,15 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UIElements;
+
 
 
 public class AlliesSpawner : MonoBehaviour
 {
-    public GameObject prefab;
+    public List<GameObject> AlliesSpawn;
+    public PoGenerator Po;
+    public TextMeshProUGUI AlliesPrice;
+    public float price;
+    public int MinionSpawn;
+    public AlliesDommage Lacourououquoila;
     void Start()
     {
-        for (var i = 0; i < 10; i++)
+
+    }
+
+    public void Creepspawn()
+    {
+
+        if (Po.goldAmount >= price)
         {
-            Instantiate(prefab, new Vector3(i * 2.0f, 0, 0), Quaternion.identity);
+            
+            Po.goldAmount -= price;
+            AlliesSpawn[MinionSpawn].SetActive(true);
+            MinionSpawn++;
+            price *= 1.2f;
+            AlliesPrice.text = price.ToString() + " Po to get Allies";
+            StartCoroutine(Lacourououquoila.MyCoroutine());
+
+
         }
+
+
     }
 }
